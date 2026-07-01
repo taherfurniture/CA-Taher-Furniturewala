@@ -80,6 +80,18 @@ p {
   bottom: 0;
   width: 62%;
   z-index: 0;
+  -webkit-mask-image: radial-gradient(
+    ellipse 72% 78% at 42% 34%,
+    #000 60%,
+    rgba(0, 0, 0, 0.6) 82%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 72% 78% at 42% 34%,
+    #000 60%,
+    rgba(0, 0, 0, 0.6) 82%,
+    transparent 100%
+  );
 }
 
 .hero__photo img {
@@ -97,9 +109,10 @@ p {
   z-index: 1;
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.78) 0%,
-    rgba(0, 0, 0, 0.45) 40%,
-    rgba(0, 0, 0, 0.05) 78%
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.55) 35%,
+    rgba(0, 0, 0, 0.2) 60%,
+    rgba(0, 0, 0, 0.05) 100%
   );
 }
 
