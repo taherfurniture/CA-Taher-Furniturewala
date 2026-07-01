@@ -5,7 +5,8 @@
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Scroll-reveal
+  // Scroll-reveal (content is visible by default in CSS; this only
+  // arms the fade-in effect, so a JS failure never hides content)
   const revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && revealEls.length) {
     const observer = new IntersectionObserver(
@@ -19,8 +20,9 @@
       },
       { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
     );
-    revealEls.forEach((el) => observer.observe(el));
-  } else {
-    revealEls.forEach((el) => el.classList.add("is-visible"));
+    revealEls.forEach((el) => {
+      el.classList.add("reveal--armed");
+      observer.observe(el);
+    });
   }
 })();
