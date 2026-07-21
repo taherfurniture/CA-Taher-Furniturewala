@@ -1,0 +1,12 @@
+.git
+.git/**
+.gitignore
+.wrangler
+.wrangler/**
+.claude
+.claude/**
+node_modules
+node_modules/**
+tools
+tools/**
+README.md
