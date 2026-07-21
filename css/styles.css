@@ -29,6 +29,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -140,6 +145,7 @@ p {
 .hero__name span {
   display: block;
   font-size: clamp(2.2rem, 6vw, 3.4rem);
+  overflow-wrap: break-word;
 }
 
 .hero__role {
@@ -177,12 +183,13 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.06);
   color: var(--color-ink-faint);
   transition: transform 0.2s var(--ease);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hero__social a:hover {
@@ -274,5 +281,30 @@ p {
     margin-left: 0;
     padding: var(--space-4) var(--space-3) var(--space-3);
     align-items: flex-start;
+  }
+
+  .hero__name span {
+    /* Decoupled from the desktop clamp so small phones (~320-400px)
+       scale down instead of holding at the 2.2rem desktop floor. */
+    font-size: clamp(1.9rem, 9vw, 2.6rem);
+  }
+
+  .hero__bio {
+    font-size: clamp(0.9rem, 3.6vw, 0.95rem);
+  }
+
+  .hero__footer span {
+    font-size: 0.75rem;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 360px) {
+  .hero__social {
+    gap: var(--space-1);
+  }
+
+  .hero__cta {
+    padding: 0.85rem 1.8rem;
   }
 }
