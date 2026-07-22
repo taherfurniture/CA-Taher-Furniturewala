@@ -1,20 +1,6 @@
 (() => {
   "use strict";
 
-  // TEMPORARY diagnostic badge — remove once mobile rendering is confirmed fixed.
-  const debug = document.createElement("div");
-  debug.style.cssText =
-    "position:fixed;top:0;left:0;right:0;z-index:9999;background:#e00;color:#fff;" +
-    "font:12px monospace;padding:6px 8px;text-align:center;";
-  const update = () =>
-    (debug.textContent = `${innerWidth}x${innerHeight} dpr:${devicePixelRatio} ${
-      matchMedia("(max-width: 860px)").matches ? "MOBILE-CSS-ACTIVE" : "DESKTOP-CSS-ACTIVE"
-    }`);
-  update();
-  window.addEventListener("resize", update);
-  document.addEventListener("DOMContentLoaded", () => document.body.prepend(debug));
-  if (document.body) document.body.prepend(debug);
-
   // Footer year
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
