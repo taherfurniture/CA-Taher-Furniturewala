@@ -83,23 +83,22 @@ p {
 }
 
 .hero__photo {
+  /* True full-bleed, edge to edge -- matches the reference's plain
+     background-cover photo instead of a boxed-in side panel. */
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 62%;
+  inset: 0;
   z-index: 0;
-  -webkit-mask-image: radial-gradient(
-    ellipse 72% 78% at 42% 34%,
-    #000 60%,
-    rgba(0, 0, 0, 0.6) 82%,
-    transparent 100%
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 32%,
+    #000 55%
   );
-  mask-image: radial-gradient(
-    ellipse 72% 78% at 42% 34%,
-    #000 60%,
-    rgba(0, 0, 0, 0.6) 82%,
-    transparent 100%
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 32%,
+    #000 55%
   );
 }
 
@@ -108,7 +107,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: left top;
+  object-position: right center;
   filter: grayscale(1) contrast(1.02);
 }
 
@@ -134,8 +133,7 @@ p {
   align-items: flex-start;
   justify-content: center;
   max-width: 560px;
-  padding: var(--space-5) var(--space-3);
-  margin-left: 8%;
+  padding: var(--space-5) var(--space-3) var(--space-5) 8%;
 }
 
 .hero__name {
@@ -153,7 +151,7 @@ p {
 }
 
 .hero__role {
-  margin: 0 0 var(--space-3);
+  margin: 0 0 1rem;
   font-size: clamp(0.75rem, 1.4vw, 0.85rem);
   font-weight: 500;
   letter-spacing: 2.5px;
@@ -162,25 +160,27 @@ p {
 }
 
 .hero__tagline {
-  max-width: 24ch;
-  margin-bottom: var(--space-2);
+  max-width: 384px;
+  margin-bottom: 0.5rem;
   font-size: clamp(1rem, 2.2vw, 1.2rem);
   font-weight: 500;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.85);
 }
 
 .hero__bio {
-  max-width: 40ch;
-  margin-bottom: var(--space-4);
+  max-width: 320px;
+  margin-bottom: 1.5rem;
   font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+  line-height: 1.6;
   color: var(--color-ink-faint);
 }
 
 .hero__social {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  margin-bottom: var(--space-4);
+  gap: 0.75rem;
+  margin-bottom: 2rem;
 }
 
 .hero__social a {
@@ -264,6 +264,8 @@ p {
     width: 100%;
     height: 42vh;
     min-height: 280px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
   }
 
   .hero__overlay {
@@ -282,7 +284,6 @@ p {
 
   .hero__text {
     max-width: none;
-    margin-left: 0;
     padding: var(--space-4) var(--space-3) var(--space-3);
     align-items: flex-start;
   }
